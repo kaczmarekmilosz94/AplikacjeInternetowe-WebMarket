@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMarket.Entities", "WebMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMarket.DataAccesLayer", "WebMarket.DataAccesLayer\WebMarket.DataAccesLayer.csproj", "{3D429750-2743-452C-ACAD-36C0DD39946C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMarketMVC", "WebMarketMVC\WebMarketMVC.csproj", "{7FDF00F4-5B2E-4498-ACB8-547572B052FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3D429750-2743-452C-ACAD-36C0DD39946C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D429750-2743-452C-ACAD-36C0DD39946C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D429750-2743-452C-ACAD-36C0DD39946C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FDF00F4-5B2E-4498-ACB8-547572B052FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FDF00F4-5B2E-4498-ACB8-547572B052FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FDF00F4-5B2E-4498-ACB8-547572B052FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FDF00F4-5B2E-4498-ACB8-547572B052FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

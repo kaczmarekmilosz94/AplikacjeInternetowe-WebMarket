@@ -18,6 +18,6 @@ namespace WebMarketAPI.Models.OutputModels
         /// <summary>
         /// Identification number of user the order was made by.
         /// </summary>
-        public int BuyerId { get; set; }
+        public string BuyerId { get; set; }
     }
 }

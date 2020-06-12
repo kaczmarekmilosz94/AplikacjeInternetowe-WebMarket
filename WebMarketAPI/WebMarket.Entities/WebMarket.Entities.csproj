@@ -40,9 +40,16 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,33 +63,17 @@
     <Compile Include="Configurations\BasketConfiguration.cs" />
     <Compile Include="Configurations\OrderConfiguration.cs" />
     <Compile Include="Configurations\ProductConfiguration.cs" />
-    <Compile Include="Configurations\UserConfiguration.cs" />
-    <Compile Include="Migrations\202005292329338_init.cs" />
-    <Compile Include="Migrations\202005292329338_init.designer.cs">
-      <DependentUpon>202005292329338_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006021843313_changed_User_table_Order_table.cs" />
-    <Compile Include="Migrations\202006021843313_changed_User_table_Order_table.designer.cs">
-      <DependentUpon>202006021843313_changed_User_table_Order_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006021858068_changed_UserConfiguration.cs" />
-    <Compile Include="Migrations\202006021858068_changed_UserConfiguration.designer.cs">
-      <DependentUpon>202006021858068_changed_UserConfiguration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006022230449_created_Basket_table.cs" />
-    <Compile Include="Migrations\202006022230449_created_Basket_table.designer.cs">
-      <DependentUpon>202006022230449_created_Basket_table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006061211072_changed_Order_Config.cs" />
-    <Compile Include="Migrations\202006061211072_changed_Order_Config.designer.cs">
-      <DependentUpon>202006061211072_changed_Order_Config.cs</DependentUpon>
+    <Compile Include="Configurations\ApplicationUserConfiguration.cs" />
+    <Compile Include="Identity\User.cs" />
+    <Compile Include="Migrations\202006121552214_init.cs" />
+    <Compile Include="Migrations\202006121552214_init.designer.cs">
+      <DependentUpon>202006121552214_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Basket.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,20 +81,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005292329338_init.resx">
-      <DependentUpon>202005292329338_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006021843313_changed_User_table_Order_table.resx">
-      <DependentUpon>202006021843313_changed_User_table_Order_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006021858068_changed_UserConfiguration.resx">
-      <DependentUpon>202006021858068_changed_UserConfiguration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006022230449_created_Basket_table.resx">
-      <DependentUpon>202006022230449_created_Basket_table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006061211072_changed_Order_Config.resx">
-      <DependentUpon>202006061211072_changed_Order_Config.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006121552214_init.resx">
+      <DependentUpon>202006121552214_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

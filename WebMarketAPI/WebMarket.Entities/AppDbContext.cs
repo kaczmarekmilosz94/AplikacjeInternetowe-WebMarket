@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Metadata.Edm;
@@ -7,19 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebMarket.Entities.Configurations;
+using WebMarket.Entities.Identity;
 using WebMarket.Entities.Models;
 
 namespace WebMarket.Entities
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User>
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }     
         public DbSet<Category> Categories { get; set; }
-        public DbSet<User> Users { get; set; }
 
 
-        public AppDbContext() : base("AppConnection")
+        public AppDbContext() : base("AppConnection", throwIfV1Schema: false)
         {
             Configuration.ProxyCreationEnabled = true;
             Configuration.LazyLoadingEnabled = true;
@@ -30,7 +31,7 @@ namespace WebMarket.Entities
             modelBuilder.Configurations.Add(new ProductConfiguration());
             modelBuilder.Configurations.Add(new OrderConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
-            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new ApplicationUserConfiguration());
             modelBuilder.Configurations.Add(new BasketConfiguration());
 
             base.OnModelCreating(modelBuilder);

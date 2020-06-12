@@ -6,6 +6,10 @@ using WebMarket.Entities.Models;
 using WebMarketAPI.Models.InputModels;
 using WebMarketAPI.Models.OutputModels;
 using AutoMapper;
+using System.Web;
+using System.Net.Http;
+using System.IO;
+using System;
 
 namespace WebMarketAPI.Controllers
 {
@@ -143,88 +147,6 @@ namespace WebMarketAPI.Controllers
 
             return Ok("Product removed");
         }
-        #endregion
-
-
-        /// <summary>
-        /// Get all products from given category
-        /// </summary>
-        /// <param name="categoryId">Category identification number</param>
-        /// <param name="pageIndex">Current page index</param>
-        /// <param name="pageSize">Amount of products on single page</param>
-        /// <returns>Collection of products</returns>
-        [Route("api/Categories/{categoryId}/products")]
-        public async Task<IHttpActionResult> GetProductsOfCategoryAsync(int categoryId, int pageIndex, int pageSize) 
-        {
-            var products = await _unitOfWork.Products.GetProductsOfCategoryAsync(categoryId, pageIndex, pageSize);
-
-            if (products == null) return NotFound();
-
-            var outputProducts = new List<ProductOutputModel>();
-
-            products.ForEach(p => outputProducts.Add(_mapper.Map<ProductOutputModel>(p)));
-
-            return Ok(outputProducts);
-        }        
-        /// <summary>
-        /// Get all products from user's offer
-        /// </summary>
-        /// <param name="userId">User identification number</param>
-        /// <param name="pageIndex">Current page index</param>
-        /// <param name="pageSize">Amount of products on single page</param>
-        /// <returns>Collection of products</returns>
-        [Route("api/Users/{userId}/products")]
-        public async Task<IHttpActionResult> GetOfferedProductsOfUserAsync(int userId, int pageIndex, int pageSize) 
-        {
-            var products = await _unitOfWork.Products.GetOfferedProductsOfUserAsync(userId, pageIndex, pageSize);
-
-            if (products == null) return NotFound();
-
-            var outputProducts = new List<ProductOutputModel>();
-
-            products.ForEach(p => outputProducts.Add(_mapper.Map<ProductOutputModel>(p)));
-
-            return Ok(outputProducts);
-        }
-        /// <summary>
-        /// Get all products sold by user
-        /// </summary>
-        /// <param name="userId">User identification number</param>
-        /// <param name="pageIndex">Current page index</param>
-        /// <param name="pageSize">Amount of products on single page</param>
-        /// <returns>Collection of products</returns>
-        [Route("api/Users/{userId}/sold_products")]
-        public async Task<IHttpActionResult> GetSoldProductsWithOrdersOfUserAsync(int userId, int pageIndex, int pageSize)
-        {
-            var products = await _unitOfWork.Products.GetSoldProductsOfUserAsync(userId, pageIndex, pageSize);
-
-            if (products == null) return NotFound();
-
-            var outputProducts = new List<ProductOutputModel>();
-
-            products.ForEach(p => outputProducts.Add(_mapper.Map<ProductOutputModel>(p)));
-
-            return Ok(outputProducts);
-        }
-        /// <summary>
-        /// Get all products from user basket
-        /// </summary>
-        /// <param name="userId">User identification number</param>
-        /// <param name="pageIndex">Current page index</param>
-        /// <param name="pageSize">Amount of products on single page</param>
-        /// <returns>Collection of products</returns>
-        [Route("api/Users/{userId}/basket/products")]
-        public IHttpActionResult GetProductsFromBasketOfUser(int userId, int pageIndex, int pageSize)
-        {
-            var products = _unitOfWork.Products.GetProductsFromBasketOfUser(userId, pageIndex, pageSize);
-
-            if (products == null) return NotFound();
-
-            var outputProducts = new List<ProductOutputModel>();
-
-            products.ForEach(p => outputProducts.Add(_mapper.Map<ProductOutputModel>(p)));
-
-            return Ok(outputProducts);
-        }
+        #endregion       
     }
 }

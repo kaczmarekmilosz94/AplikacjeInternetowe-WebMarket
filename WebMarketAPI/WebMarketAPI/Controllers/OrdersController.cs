@@ -39,7 +39,7 @@ namespace WebMarketAPI.Controllers
 
             if (order == null) return NotFound();
 
-            var outputOrder = _mapper.Map<ProductOutputModel>(order);
+            var outputOrder = _mapper.Map<OrderOutputModel>(order);
 
             return Ok(outputOrder);
         }
@@ -71,6 +71,11 @@ namespace WebMarketAPI.Controllers
                 var order = await _unitOfWork.Orders.GetAsync(id);
                 if (order == null) return NotFound();
 
+                foreach (var product in order.Products)
+                {
+                    product.Order = null;
+                }
+
                 _unitOfWork.Orders.Remove(order);
                 await _unitOfWork.Commit();
             }
@@ -83,63 +88,13 @@ namespace WebMarketAPI.Controllers
         }
         #endregion
 
+      
         /// <summary>
-        /// Get all orders of user
-        /// </summary>
-        /// <param name="userId">User identification number</param>
-        /// <param name="pageIndex">Current page index</param>
-        /// <param name="pageSize">Amount of orders on a single page</param>
-        /// <returns>Collection of orders</returns>
-        [Route("api/User/{userId}/orders")]
-        public async Task<IHttpActionResult> GetOrdersOfUserAsync(int userId, int pageIndex, int pageSize)
-        {
-            var orders = await _unitOfWork.Orders.GetOrdersOfUserAsync( userId,  pageIndex,  pageSize);
-
-            if (orders == null) return NotFound();
-
-            var outputOrders = new List<OrderOutputModel>();
-
-            orders.ForEach(o => outputOrders.Add(_mapper.Map<OrderOutputModel>(o)));
-
-            return Ok(outputOrders);
-        }
-        /// <summary>
-        /// Get all orders with products of user 
-        /// </summary>
-        /// <param name="userId">User identification number</param>
-        /// <param name="pageIndex">Current page index</param>
-        /// <param name="pageSize">Amount of orders on a single page</param>
-        /// <returns>Collection of orders with products</returns>
-        [Route("api/User/{userId}/orders-products")]
-        public async Task<IHttpActionResult> GetOrdersWithProductsOfUserAsync(int userId, int pageIndex, int pageSize) 
-        {
-            var orders = await _unitOfWork.Orders.GetOrdersWithProductsOfUserAsync(userId, pageIndex, pageSize);
-
-            if (orders == null) return NotFound();
-
-            var outputOrders = new List<OrderWithProductsOutputModel>();
-
-            orders.ForEach(o => outputOrders.Add(_mapper.Map<OrderWithProductsOutputModel>(o)));
-                       
-
-            for (int i = 0; i < orders.Count; i++)
-            {
-                outputOrders[i].Products = new List<ProductOutputModel>();
-                
-                foreach (var product in orders[i].Products)
-                {
-                    outputOrders[i].Products.Add(_mapper.Map<ProductOutputModel>(product));
-                }
-            }
-
-            return Ok(outputOrders);
-        }
-        /// <summary>
-        /// Get order with products of user 
+        /// Get details of an order
         /// </summary>
         /// <param name="id">Order identification number</param>
         /// <returns>Order with products</returns>
-        [Route("api/User/orders-products/{id}")]
+        [Route("api/Order/{id}/products")]
         public IHttpActionResult GetOrderWithProducts(int id) 
         {
             var order = _unitOfWork.Orders.GetOrderWithProducts(id);
@@ -147,7 +102,7 @@ namespace WebMarketAPI.Controllers
             if (order == null) return NotFound();
 
             var outputOrder = _mapper.Map<OrderWithProductsOutputModel>(order);
-
+            outputOrder.Products = new List<ProductOutputModel>();
 
             foreach (var product in order.Products)
             {

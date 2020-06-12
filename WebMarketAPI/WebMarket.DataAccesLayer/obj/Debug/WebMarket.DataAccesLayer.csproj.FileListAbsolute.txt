@@ -1,0 +1,15 @@
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.DataAccesLayer.dll.config
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.DataAccesLayer.dll
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.DataAccesLayer.pdb
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\EntityFramework.dll
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.Entities.dll
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.Entities.pdb
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.Entities.dll.config
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\EntityFramework.xml
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.csprojAssemblyReference.cache
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.csproj.CoreCompileInputs.cache
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.csproj.CopyComplete
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.dll
+C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.pdb

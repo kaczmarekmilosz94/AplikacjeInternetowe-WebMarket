@@ -20,6 +20,10 @@ namespace WebMarketAPI.Models.OutputModels
         /// </summary>
         public decimal Price { get; set; }
         /// <summary>
+        /// URL of product image.
+        /// </summary>
+        public string ImageURL { get; set; }
+        /// <summary>
         /// Name of category the product belongs to.
         /// </summary>
         public string CategoryName { get; set; }

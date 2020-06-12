@@ -10,6 +10,6 @@ namespace WebMarketAPI.Models.OutputModels
         /// <summary>
         /// Identification number of the basket's owner (user).
         /// </summary>
-        public int OwnerId { get; set; }
+        public string OwnerId { get; set; }
     }
 }

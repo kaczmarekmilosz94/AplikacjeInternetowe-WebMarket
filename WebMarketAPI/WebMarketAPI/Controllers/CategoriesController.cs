@@ -144,5 +144,27 @@ namespace WebMarketAPI.Controllers
             return Ok("Category removed");
         }
         #endregion
+
+
+        /// <summary>
+        /// Get all products from given category
+        /// </summary>
+        /// <param name="categoryId">Category identification number</param>
+        /// <param name="pageIndex">Current page index</param>
+        /// <param name="pageSize">Amount of products on single page</param>
+        /// <returns>Collection of products</returns>
+        [Route("api/Categories/{categoryId}/products")]
+        public async Task<IHttpActionResult> GetProductsOfCategoryAsync(int categoryId, int pageIndex = 0, int pageSize = 10)
+        {
+            var products = await _unitOfWork.Products.GetProductsOfCategoryAsync(categoryId, pageIndex, pageSize);
+
+            if (products == null) return NotFound();
+
+            var outputProducts = new List<ProductOutputModel>();
+
+            products.ForEach(p => outputProducts.Add(_mapper.Map<ProductOutputModel>(p)));
+
+            return Ok(outputProducts);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WebMarket.Entities.Identity;
 
 namespace WebMarket.Entities.Models
 {
@@ -10,7 +11,7 @@ namespace WebMarket.Entities.Models
 
         public virtual ICollection<Product> Products { get; set; }
 
-        public int BuyerId { get; set; }
+        public string BuyerId { get; set; }
         public virtual User Buyer { get; set; }
     }
 }

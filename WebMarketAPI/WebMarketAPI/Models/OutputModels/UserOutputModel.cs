@@ -9,7 +9,7 @@ namespace WebMarketAPI.Models.OutputModels
         /// <summary>
         /// Identification number of the user.
         /// </summary>
-        public int Id { get; set; }
+        public string Id { get; set; }
         /// <summary>
         /// Name of the user. Must be unique.
         /// </summary>

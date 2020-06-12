@@ -14,15 +14,16 @@ namespace WebMarket.DataAccesLayer.Repositories.Concrete
         {
         }
 
-        public async Task<List<Order>> GetOrdersOfUserAsync(int userId, int pageIndex, int pageSize)
+        public async Task<List<Order>> GetOrdersOfUserAsync(string userId, int pageIndex, int pageSize)
         {
             return await appContext.Orders
                 .Where(o => o.BuyerId == userId)
+                .OrderBy(o => o.PurchaseTime)
                 .Skip((pageIndex * pageSize))
                 .Take(pageSize)
                 .ToListAsync();
         }       
-        public async Task<List<Order>> GetOrdersWithProductsOfUserAsync(int userId, int pageIndex, int pageSize)
+        public async Task<List<Order>> GetOrdersWithProductsOfUserAsync(string userId, int pageIndex, int pageSize)
         {
             return await appContext.Orders
                  .Where(o => o.BuyerId == userId)

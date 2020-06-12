@@ -23,7 +23,7 @@ namespace WebMarket.DataAccesLayer.Repositories.Concrete
                 .Take(pageSize)
                 .ToListAsync();
         }      
-        public async Task<List<Product>> GetOfferedProductsOfUserAsync(int sellerId, int pageIndex, int pageSize)
+        public async Task<List<Product>> GetOfferedProductsOfUserAsync(string sellerId, int pageIndex, int pageSize)
         {
             return await appContext.Products
                 .Where(p => p.SellerId == sellerId)
@@ -32,7 +32,7 @@ namespace WebMarket.DataAccesLayer.Repositories.Concrete
                 .Take(pageSize)
                 .ToListAsync();
         }
-        public async Task<List<Product>> GetSoldProductsOfUserAsync(int userId, int pageIndex, int pageSize)
+        public async Task<List<Product>> GetSoldProductsOfUserAsync(string userId, int pageIndex, int pageSize)
         {
             return await appContext.Products
                .Where(p => p.SellerId == userId && p.Order != null)
@@ -41,7 +41,7 @@ namespace WebMarket.DataAccesLayer.Repositories.Concrete
                .Take(pageSize)
                .ToListAsync();
         }
-        public List<Product> GetProductsFromBasketOfUser(int userId, int pageIndex, int pageSize)
+        public List<Product> GetProductsFromBasketOfUser(string userId, int pageIndex, int pageSize)
         {
             return appContext.Users.Where(u => u.Id == userId)
                 .FirstOrDefault()
