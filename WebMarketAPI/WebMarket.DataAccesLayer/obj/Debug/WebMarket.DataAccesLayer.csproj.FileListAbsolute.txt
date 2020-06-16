@@ -13,3 +13,24 @@ C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebM
 C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.csproj.CopyComplete
 C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.dll
 C:\Users\milos\source\repos\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.pdb
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.DataAccesLayer.dll.config
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.DataAccesLayer.dll
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.DataAccesLayer.pdb
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\EntityFramework.dll
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.Entities.dll
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.Entities.pdb
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\WebMarket.Entities.dll.config
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\EntityFramework.xml
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\pl\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\bin\Debug\pl\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.csprojAssemblyReference.cache
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.csproj.CoreCompileInputs.cache
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.csproj.CopyComplete
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.dll
+C:\Users\skaii\Skaipi\UMK\Aplikacje Internetowe\AplikacjeInternetowe-WebMarket\WebMarketAPI\WebMarket.DataAccesLayer\obj\Debug\WebMarket.DataAccesLayer.pdb
