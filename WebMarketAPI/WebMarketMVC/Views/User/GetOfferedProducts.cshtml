@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebMarket.Entities.Models.Product>
+
+ <div class="dashboard">
+     <div class="navigation">
+         <div class="nav-block">@Html.ActionLink("Panel użytkownika", "Index", "Manage")</div>
+         <div class="nav-block">@Html.ActionLink("Sprzedaż", "GetOfferedProducts", "User")</div>
+         <div class="nav-block">@Html.ActionLink("Zakupy", "GetOrders", "User")</div>
+     </div>
+
+     <div class="data">
+         <div style="position: relative">
+            <h4>Twoje oferty</h4>
+            <a href="/Products/Create" style="position: absolute; right: 0; top: 0"><div class="btn btn-custom">DODAJ OFERTĘ</div></a>
+         </div>
+         <hr />
+         @foreach (var item in Model)
+         {
+             <div class="product" category="@item.CategoryId">
+                 <div>
+                     <img src="@Url.Content(item.ImageURL)" />
+                 </div>
+
+                 <div>
+                     <h3>@item.Name</h3>
+                     <hr />
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus sit amet erat quis accumsan. In laoreet, ipsum non sodales laoreet, enim dui tempus tortor, eget bibendum sapien nisl maximus tortor.</p>
+
+                     <div class="prdoduct-buttons">
+                         @if (item.OrderId != null)
+                         {
+                             <div class="btn btn-custom-info"></div>
+                         }
+                     </div>
+                 </div>
+             </div>
+         }
+     </div>
+ </div>

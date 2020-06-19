@@ -61,10 +61,9 @@ namespace WebMarketMVC
             container.RegisterType<DbContext, AppDbContext>(new HierarchicalLifetimeManager());
             container.RegisterType<UserManager<User>>(new HierarchicalLifetimeManager());
             container.RegisterType<IUserStore<User>, UserStore<User>>(new HierarchicalLifetimeManager());
+            container.RegisterFactory<IAuthenticationManager>(x => HttpContext.Current.GetOwinContext().Authentication);
             container.RegisterType<AccountController>(new InjectionConstructor());
 
-            //container.RegisterType<IAuthenticationManager>(new InjectionFactory(x => HttpContext.Current.GetOwinContext().Authentication));
-            container.RegisterFactory<IAuthenticationManager>(x => HttpContext.Current.GetOwinContext().Authentication);
         }
     }
 }

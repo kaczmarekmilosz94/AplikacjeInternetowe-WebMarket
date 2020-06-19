@@ -14,6 +14,7 @@ using WebMarket.DataAccesLayer.Core.Abstract;
 
 namespace WebMarketMVC.Controllers
 {
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

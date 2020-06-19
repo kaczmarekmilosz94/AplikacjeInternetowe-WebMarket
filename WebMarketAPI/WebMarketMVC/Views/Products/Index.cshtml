@@ -5,22 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{var categories = Model.Select(p => p.Category).Distinct();}
 <div class="dashboard">
     <div class="navigation">
-        <div id="category1" class="flex-label" onclick="HandleCheckbox('#category1')">
-            <span>Motoryzacja</span>
-            <div class="checkbox"></div>
-        </div>
-
-        <div id="category2" class="flex-label" onclick="HandleCheckbox('#category2')">
-            <span>Elektronika</span>
-            <div class="checkbox"></div>
-        </div>
-
-        <div id="category3" class="flex-label" onclick="HandleCheckbox('#category3')">
-            <span>Check</span>
-            <div class="checkbox"></div>
-        </div>
+       
+        @foreach (var category in categories)
+        {
+            <div id="@category.Id" class="flex-label" onclick="HandleCheckbox('#@category.Id')">
+                <span>@category.Name</span>
+                <div class="checkbox"></div>
+            </div>
+        }
     </div>
 
     <div class="data">
@@ -33,9 +28,9 @@
 
                 <div>
                     <h3>@item.Name</h3>
-                    <hr/>
+                    <hr />
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus sit amet erat quis accumsan. In laoreet, ipsum non sodales laoreet, enim dui tempus tortor, eget bibendum sapien nisl maximus tortor.</p>
-                    
+
                     <div class="prdoduct-buttons">
                         <div class="btn btn-custom">DO KOSZYKA</div>
                         <div class="btn btn-custom">KUP TERAZ</div>

@@ -321,7 +321,7 @@ namespace WebMarketMVC.Controllers
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
-
+        /*
         protected override void Dispose(bool disposing)
         {
             if (disposing && _userManager != null)
@@ -332,6 +332,7 @@ namespace WebMarketMVC.Controllers
 
             base.Dispose(disposing);
         }
+        */
 
 #region Pomocnicy
         // Służy do ochrony XSRF podczas dodawania logowań zewnętrznych

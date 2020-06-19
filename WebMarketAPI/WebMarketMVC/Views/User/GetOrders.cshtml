@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebMarket.Entities.Models.Order>
+
+<div class="dashboard">
+    <div class="navigation">
+        <div class="nav-block">@Html.ActionLink("Panel użytkownika", "Index", "Manage")</div>
+        <div class="nav-block">@Html.ActionLink("Sprzedaż", "GetOfferedProducts", "User")</div>
+        <div class="nav-block">@Html.ActionLink("Zakupy", "GetOrders", "User")</div>
+    </div>
+
+    <div class="data">
+        <div style="position: relative">
+            <h4>Zamówienia</h4>
+        </div>
+        <hr />
+        @foreach (var order in Model)
+        { 
+            <div class="product">
+                <div>
+                    <h3>Data: @order.PurchaseTime</h3>
+                    <hr />
+                </div>
+            </div>   
+        }
+    </div>
+</div>
