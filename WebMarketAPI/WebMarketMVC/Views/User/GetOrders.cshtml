@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebMarket.Entities.Models.Order>
+
+<h2>Twoje zamówienia</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Buyer.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Buyer.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseTime)
+        </td>
+        <td>
+            @Html.ActionLink("Usuń zamówienie","Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -212,6 +212,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -290,6 +291,11 @@
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Categories\_categoryListPartial.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\GetOfferedProducts.cshtml" />
+    <Content Include="Views\User\GetSoldProducts.cshtml" />
+    <Content Include="Views\User\ShowBasket.cshtml" />
+    <Content Include="Views\User\GetOrders.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
