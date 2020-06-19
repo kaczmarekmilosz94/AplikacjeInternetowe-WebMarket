@@ -1,4 +1,5 @@
-﻿const Products = $('.product');
+﻿const HTTP_SERVER = "https://localhost:44349"
+const Products = $('.product');
 let CategoryFilter = [];
 
 const HandleCheckbox = (id) => {
@@ -26,5 +27,11 @@ const HandleCheckbox = (id) => {
         } else {
             product.fadeOut(500);
         }
+    });
+}
+
+const AddToBasket = (id) => {
+    fetch(`${HTTP_SERVER}/`, () => {
+
     });
 }
