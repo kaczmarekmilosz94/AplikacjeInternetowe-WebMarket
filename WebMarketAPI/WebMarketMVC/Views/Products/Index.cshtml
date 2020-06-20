@@ -5,55 +5,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@{var categories = Model.Select(p => p.Category).Distinct();}
+<div class="dashboard">
+    <div class="navigation">
+       
+        @foreach (var category in categories)
+        {
+            <div id="@category.Id" class="flex-label" onclick="HandleCheckbox('#@category.Id')">
+                <span>@category.Name</span>
+                <div class="checkbox"></div>
+            </div>
+        }
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Photo
-        </th>
-        <th>
-            Name
-        </th>
-        <th>
-            Category
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Seller
-        </th>
-        <th></th>
-    </tr>
+    <div class="data">
+        @foreach (var item in Model)
+        {
+            <div class="product" category="@item.CategoryId">
+                <div>
+                    <img src="@Url.Content(item.ImageURL)" />
+                </div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageURL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Seller.UserName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
+                <div>
+                    <h3>@item.Name</h3>
+                    <hr />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus sit amet erat quis accumsan. In laoreet, ipsum non sodales laoreet, enim dui tempus tortor, eget bibendum sapien nisl maximus tortor.</p>
 
-</table>
+                    <div class="prdoduct-buttons">
+                        <div class="btn btn-custom">DO KOSZYKA</div>
+                        <a href="/User/AddToBasket?productId=@item.Id"><div class="btn btn-custom">KUP TERAZ</div></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

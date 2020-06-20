@@ -18,6 +18,9 @@ namespace WebMarketMVC
             bundles.Add(new ScriptBundle("~/bundles/unobtrusive").Include(
                     "~/Scripts/jquery.unobtrusive*"));
 
+            bundles.Add(new ScriptBundle("~/SimpleJS").Include(
+                    "~/Scripts/index.js"));
+
             // Użyj wersji deweloperskiej biblioteki Modernizr do nauki i opracowywania rozwiązań. Następnie, kiedy wszystko będzie
             // gotowe do produkcji, użyj narzędzia do kompilowania ze strony https://modernizr.com, aby wybrać wyłącznie potrzebne testy.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -27,8 +30,10 @@ namespace WebMarketMVC
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/all.min.css",
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/index.css"));
         }
     }
 }
