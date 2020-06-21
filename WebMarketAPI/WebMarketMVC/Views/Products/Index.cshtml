@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<WebMarket.Entities.Models.Product>
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "Index";
@@ -8,7 +9,7 @@
 @{var categories = Model.Select(p => p.Category).Distinct();}
 <div class="dashboard">
     <div class="navigation">
-       
+
         @foreach (var category in categories)
         {
             <div id="@category.Id" class="flex-label" onclick="HandleCheckbox('#@category.Id')">
@@ -48,7 +49,14 @@
                             <h5>@item.Price zł</h5>
                         </div>
                         <div>
-                            <div class="btn btn-custom">DO KOSZYKA</div>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <div class="btn btn-custom" onclick="AddToBasket('@User.Identity.GetUserId()', '@item.Id')">DO KOSZYKA</div>
+                            }
+                            else
+                            {
+                                <div class="btn btn-custom" onclick="AddToBasket()">DO KOSZYKA</div>
+                            }
                             <a href="/User/AddToBasket?productId=@item.Id"><div class="btn btn-custom">KUP TERAZ</div></a>
                         </div>
                     </div>

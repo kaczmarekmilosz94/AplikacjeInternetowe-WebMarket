@@ -1,4 +1,4 @@
-﻿const HTTP_SERVER = "https://localhost:44349"
+﻿const HTTP_SERVER = "http://caper0071-001-site1.itempurl.com"
 const Products = $('.product');
 let CategoryFilter = [];
 let currentPage = 0;
@@ -60,11 +60,17 @@ const PagePrev = (pageSize = 10) => {
     }
 }
 
-const AddToBasket = (id) => {
-    fetch(`${HTTP_SERVER}/`, {
-
-    });
-}
+const AddToBasket = (userId = 0, productId = 0) => {
+    fetch(`${HTTP_SERVER}/api/Users/${userId}/basket/add `, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(productId)
+    }).then(
+        response => console.log(response)
+    );
+};
 
 $(document).ready(() => {
     Paginate(currentPage);
