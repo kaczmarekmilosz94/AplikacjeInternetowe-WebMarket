@@ -170,3 +170,13 @@ a:visited {
     border: none;
     transition: background-color ease-in-out .2s;
 }
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-around {
+    display: flex;
+    justify-content: space-around;
+}
