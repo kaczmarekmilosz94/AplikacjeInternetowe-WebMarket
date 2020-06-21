@@ -31,7 +31,7 @@ const HandleCheckbox = (id) => {
 }
 
 const AddToBasket = (id) => {
-    fetch(`${HTTP_SERVER}/`, () => {
+    fetch(`${HTTP_SERVER}/`, {
 
     });
 }

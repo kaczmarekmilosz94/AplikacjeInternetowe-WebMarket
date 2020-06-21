@@ -32,8 +32,13 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus sit amet erat quis accumsan. In laoreet, ipsum non sodales laoreet, enim dui tempus tortor, eget bibendum sapien nisl maximus tortor.</p>
 
                     <div class="prdoduct-buttons">
-                        <div class="btn btn-custom">DO KOSZYKA</div>
-                        <a href="/User/AddToBasket?productId=@item.Id"><div class="btn btn-custom">KUP TERAZ</div></a>
+                        <div class="prdoduct-buttons">
+                            <h5>@item.Price zł</h5>
+                        </div>
+                        <div>
+                            <div class="btn btn-custom">DO KOSZYKA</div>
+                            <a href="/User/AddToBasket?productId=@item.Id"><div class="btn btn-custom">KUP TERAZ</div></a>
+                        </div>
                     </div>
                 </div>
             </div>

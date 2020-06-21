@@ -9,6 +9,11 @@ h4 {
     padding 8px 0;
 }
 
+h5 {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -104,8 +109,9 @@ a:visited {
 
 .prdoduct-buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-content: flex-end;
+    align-items: end;
 }
 
 .prdoduct-buttons .btn {
