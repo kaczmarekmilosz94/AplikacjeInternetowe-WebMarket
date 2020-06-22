@@ -29,18 +29,16 @@
                         @Html.DisplayFor(modelItem => item.Price) zł
                     </td>
                     <td>
-                        <div class="flex-between">
-                            <a href="/User/RemoveFromBasket?productId=@item.Id" class="btn btn-danger">Usuń</a>
-                            <a href="/" class="btn btn-custom">Realizuj zamówienie</a>
-                        </div>
+                        <a href="/User/RemoveFromBasket?productId=@item.Id" class="btn btn-danger">Usuń</a>
                     </td>
                 </tr>
             }
 
         </table>
 
-        <p>
+        <div class="flex-between">
             @Html.ActionLink("Wyczyść koszyk", "ClearBasket", null, new { @class = "btn btn-danger" })
-        </p>
+            <a href="/User/Order" class="btn btn-custom">Realizuj zamówienie</a>
+        </div>
     </section>
 </div>
