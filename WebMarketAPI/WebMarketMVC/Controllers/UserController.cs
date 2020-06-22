@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebMarket.DataAccesLayer.Core.Abstract;
 using WebMarket.Entities.Identity;
+using WebMarket.Entities.Models;
 
 namespace WebMarketMVC.Controllers
 {
@@ -29,7 +30,6 @@ namespace WebMarketMVC.Controllers
         }
 
         [HttpGet]
-        // GET: User/GetOfferedProducts
         public async Task<ActionResult> GetOfferedProducts()
         {
             string userId = User.Identity.GetUserId();
@@ -40,7 +40,6 @@ namespace WebMarketMVC.Controllers
         }
 
         [HttpGet]
-        // GET: User/GetSoldProducts
         public async Task<ActionResult> GetSoldProducts()
         {
             string userId = User.Identity.GetUserId();
@@ -51,7 +50,6 @@ namespace WebMarketMVC.Controllers
         }
 
         [HttpGet]
-        // GET: User/ShowBasket
         public ActionResult ShowBasket()
         {
             string userId = User.Identity.GetUserId();
@@ -62,7 +60,6 @@ namespace WebMarketMVC.Controllers
         }
 
         [HttpGet]
-        // GET: User/AddToBasket/5
         public async Task<ActionResult> AddToBasket(int? productId)
         {
             try
@@ -91,7 +88,6 @@ namespace WebMarketMVC.Controllers
         }
 
         [HttpGet]
-        // GET: User/RemoveFromBasket/5
         public async Task<ActionResult> RemoveFromBasket(int? productId)
         {
             try
@@ -119,7 +115,6 @@ namespace WebMarketMVC.Controllers
 
 
         [HttpGet]
-        // GET: User/ClearBasket
         public async Task<ActionResult> ClearBasket()
         {
             try
@@ -139,7 +134,6 @@ namespace WebMarketMVC.Controllers
         }
 
         [HttpGet]
-        // GET: User/GetOrders
         public async Task<ActionResult> GetOrders()
         {
             string userId = User.Identity.GetUserId();
@@ -151,6 +145,34 @@ namespace WebMarketMVC.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<ActionResult> Order()
+        {
+            try
+            {
+                var user = await _unitOfWork.Users.GetAsync(User.Identity.GetUserId());
+
+                if (!user.Basket.Products.Any())
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                var orderedProducts = user.Basket.Products.ToArray();
+
+                var order = new Order()
+                {
+                    BuyerId = user.Id,
+                    PurchaseTime = DateTime.Now,
+                    Products = orderedProducts
+                };
+                user.Basket.Products.Clear();
+                _unitOfWork.Orders.Add(order);
+                await _unitOfWork.Commit();
+            }
+            catch
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+            }
+            return RedirectToAction("GetOrders");
+        }
 
     }
 }
