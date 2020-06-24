@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<WebMarket.Entities.Models.Product>
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "Index";
@@ -8,7 +9,7 @@
 @{var categories = Model.Select(p => p.Category).Distinct();}
 <div class="dashboard">
     <div class="navigation">
-       
+
         @foreach (var category in categories)
         {
             <div id="@category.Id" class="flex-label" onclick="HandleCheckbox('#@category.Id')">
@@ -19,24 +20,64 @@
     </div>
 
     <div class="data">
+
+        <div class="flex-between">
+            <svg class="bi bi-arrow-left-square-fill" width="2em" height="2em" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" cursor="pointer" onclick="PagePrev()">
+                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z" />
+            </svg>
+
+            <h5 id="pages"></h5>
+
+            <svg class="bi bi-arrow-right-square-fill" width="2em" height="2em" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" cursor="pointer" onclick="PageNext()">
+                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+            </svg>
+        </div>
+
+        <hr />
         @foreach (var item in Model)
         {
             <div class="product" category="@item.CategoryId">
                 <div>
-                    <img src="@Url.Content(item.ImageURL)" />
+                    <img src="~/Content/ProductImages/@item.ImageURL" />
                 </div>
 
                 <div>
                     <h3>@item.Name</h3>
+                    <h6>@item.Seller.Email</h6>
                     <hr />
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus sit amet erat quis accumsan. In laoreet, ipsum non sodales laoreet, enim dui tempus tortor, eget bibendum sapien nisl maximus tortor.</p>
 
                     <div class="prdoduct-buttons">
-                        <div class="btn btn-custom">DO KOSZYKA</div>
-                        <a href="/User/AddToBasket?productId=@item.Id"><div class="btn btn-custom">KUP TERAZ</div></a>
+                        <div class="prdoduct-buttons">
+                            <h5>@item.Price zł</h5>
+                        </div>
+                        <div>
+                            @if (Request.IsAuthenticated)
+                            {
+                                <div class="btn btn-custom" onclick="AddToBasket('@User.Identity.GetUserId()', '@item.Id')">DO KOSZYKA</div>
+                            }
+                            else
+                            {
+                                <div class="btn btn-custom" onclick="AddToBasket()">DO KOSZYKA</div>
+                            }
+                            <a href="/User/AddToBasket?productId=@item.Id"><div class="btn btn-custom">KUP TERAZ</div></a>
+                        </div>
                     </div>
                 </div>
             </div>
         }
+        <hr />
+        <div class="flex-between">
+            <svg class="bi bi-arrow-left-square-fill" width="2em" height="2em" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" cursor="pointer" onclick="PagePrev()">
+                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.354 10.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L6.207 7.5H11a.5.5 0 0 1 0 1H6.207l2.147 2.146z" />
+            </svg>
+
+            <h5 id="pages"></h5>
+
+            <svg class="bi bi-arrow-right-square-fill" width="2em" height="2em" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" cursor="pointer" onclick="PageNext()">
+                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+            </svg>
+        </div>
+
     </div>
 </div>

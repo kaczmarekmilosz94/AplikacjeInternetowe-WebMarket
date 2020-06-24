@@ -74,7 +74,7 @@ namespace WebMarketMVC.Controllers
                 if (file != null)
                 {
                     string fileName = Path.GetFileName(file.FileName);
-                    string path = Path.Combine(Server.MapPath("~/App_Data/ProductImages"), fileName);
+                    string path = Path.Combine(Server.MapPath("~/Content/ProductImages"), fileName);
                     file.SaveAs(path);
 
                     product.ImageURL = fileName;

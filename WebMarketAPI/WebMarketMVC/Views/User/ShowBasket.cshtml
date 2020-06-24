@@ -1,43 +1,54 @@
 ﻿@model IEnumerable<WebMarket.Entities.Models.Product>
+
 <div class="center-box">
     <section id="loginForm">
-        <h2>Twój koszyk</h2>
-        <table class="table">
-            <tr>
-                <th>
-                    
-                </th>
-                <th>
-                    Produkt
-                </th>
-                <th>
-                    Cena
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+        @if (Model.Count() > 0)
+        {
+            <h2>Twój koszyk</h2>
+            <table class="table">
                 <tr>
-                    <td>
-                        <img src="@Url.Content(item.ImageURL)" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price) zł
-                    </td>
-                    <td>
-                        @Html.ActionLink("Usuń", "RemoveFromBasket", new { id = item.Id }, new { @class = "btn btn-danger" })
-                    </td>
+                    <th>
+
+                    </th>
+                    <th>
+                        Produkt
+                    </th>
+                    <th>
+                        Cena
+                    </th>
+                    <th></th>
                 </tr>
-            }
 
-        </table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="@Url.Content(item.ImageURL)" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price) zł
+                        </td>
+                        <td>
+                            <a href="/User/RemoveFromBasket?productId=@item.Id" class="btn btn-danger">Usuń</a>
+                        </td>
+                    </tr>
+                }
 
-        <p>
-            @Html.ActionLink("Wyczyść koszyk", "ClearBasket", null, new { @class = "btn btn-danger" })
-        </p>
+            </table>
+
+            <div class="flex-between">
+                @Html.ActionLink("Wyczyść koszyk", "ClearBasket", null, new { @class = "btn btn-danger" })
+                <a href="/User/Order" class="btn btn-custom">Realizuj zamówienie</a>
+            </div>
+        }
+        else
+        {
+            <h2>Twój koszyk jest pusty</h2>
+            <hr/>
+            <a href="/" class="btn btn-custom">Zacznij zakupy!</a>
+        }
     </section>
 </div>
