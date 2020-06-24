@@ -1,4 +1,4 @@
-﻿const HTTP_SERVER = "http://caper0071-001-site1.itempurl.com"
+﻿const HTTP_SERVER = "https://localhost:44373/"
 const Products = $('.product');
 let CategoryFilter = [];
 let currentPage = 0;
@@ -32,20 +32,27 @@ const HandleCheckbox = (id) => {
             product.addClass('filtered');
         }
     });
+
+    Paginate(currentPage);
 }
 
 const GetUnfilteredProducts = () => { return Products.filter((index, product) => !$(product).hasClass('filtered')) }
 
 const Paginate = (page, pageSize = 10) => {
+    const filteredProducts = GetUnfilteredProducts();
+    const maxPage = parseInt((filteredProducts.length-1) / pageSize);
+    if (maxPage < page) { page = maxPage; }
     currentPage = page;
 
-    GetUnfilteredProducts().each((index, product) => {
+    filteredProducts.each((index, product) => {
         if (index >= page * pageSize && index < page * pageSize + pageSize) {
             $(product).fadeIn(500);
         } else {
             $(product).hide();
         }
     });
+
+    $('#pages').html(`${currentPage+1} / ${maxPage+1}`);
 };
 
 const PageNext = (pageSize = 10) => {

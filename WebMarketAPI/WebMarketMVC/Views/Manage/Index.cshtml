@@ -4,7 +4,7 @@
 }
 <div class="dashboard">
     <div class="navigation">
-        <div class="nav-block">@Html.ActionLink("Panel użytkownika", "Index", "Manage")</div>
+        <div class="nav-block">@Html.ActionLink("Panel użytkownika", "Index", "Manage", new { @class = "active" })</div>
         <div class="nav-block">@Html.ActionLink("Sprzedaż", "GetOfferedProducts", "User")</div>
         <div class="nav-block">@Html.ActionLink("Zakupy", "GetOrders", "User")</div>
     </div>
